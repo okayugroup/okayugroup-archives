@@ -2,10 +2,11 @@
 
 include 'lib/parsedown/Parsedown.php';
 
+$config = parse_ini_file('config.ini');
 
-$DIRECTORY = 'E:\\source\\EarthQuake'; // 基準にするディレクトリ。環境によって変更してください。
-
-$SEPARATOR = '\\'; // ディレクトリの区切り文字。Windowsはバックスラッシュ(\)、Linuxはスラッシュ(/)です。
+$DIRECTORY = $config['DIRECTORY'] ?? '.';
+$SEPARATOR = $config['SEPARATOR'] ?? DIRECTORY_SEPARATOR;
+$RELATIVE_PATH = $config['RELATIVE_PATH'] ?? '';
 
 $request_directory = $_GET['dir'] ?? '';
 
@@ -22,7 +23,7 @@ $lang = $_GET['lang'] ?? 'ja';
 
 // $directoryに対してパンくずリストを生成
 $breadcrumbs = [];
-$directories = explode($SEPARATOR, $directory);
+$directories = explode('/', $request_directory);
 $url = '';
 foreach ($directories as $_directory) {
     $url .= '/' . $_directory;
@@ -40,7 +41,7 @@ echo '
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/' . $RELATIVE_PATH . '/styles.css'.'">
     <title>'.$lang_dict->{'title'}.'</title>
 </head>
 <body>
@@ -115,7 +116,7 @@ foreach ($files as $file) {
         continue;
     }
     echo '<tr>';
-    echo '<td><a href="'.$directory.$SEPARATOR.$file['name'].'">'.$file['name'].'</a></td>';
+    echo '<td><a href="'.'/'.$request_directory.'/'.$file['name'].'">'.$file['name'].'</a></td>';
     echo '<td></td>';
     echo '<td>'.date('Y-m-d H:i:s', $file['mtime']).'</td>';
     echo '</tr>';
@@ -126,7 +127,7 @@ foreach ($files as $file) {
         continue;
     }
     echo '<tr>';
-    echo '<td><a href="'.$directory.$SEPARATOR.$file['name'].'">'.$file['name'].'</a></td>';
+    echo '<td><a href="'.'/'.$request_directory.'/'.$file['name'].'">'.$file['name'].'</a></td>';
     if ($file['size'] >= 1024 * 1024 * 1024) {
         echo '<td>'.round($file['size'] / 1024 / 1024 / 1024, 2).' GB</td>';
     } else if ($file['size'] >= 1024 * 1024) {
