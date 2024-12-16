@@ -124,6 +124,11 @@ foreach ($files as $file) {
         continue;
     }
     echo '<tr>';
+    if ($request_directory) {
+        echo '<td><a href="'.'/'.$request_directory.'/'.$file['name'].'">'.$file['name'].'</a></td>';
+    } else {
+        echo '<td><a href="'.$file['name'].'">'.$file['name'].'</a></td>';
+    }
     echo '<td><a href="'.'/'.$request_directory.'/'.$file['name'].'">'.$file['name'].'</a></td>';
     echo '<td></td>';
     echo '<td>'.date('Y-m-d H:i:s', $file['mtime']).'</td>';
