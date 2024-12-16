@@ -9,6 +9,9 @@ $SEPARATOR = $config['SEPARATOR'] ?? DIRECTORY_SEPARATOR;
 $RELATIVE_PATH = $config['RELATIVE_PATH'] ?? '';
 
 $request_directory = $_GET['dir'] ?? '';
+if (str_ends_with($request_directory, '/')) {
+    $request_directory = substr($request_directory, 1);
+}
 
 if ($request_directory) {
     $directory = $DIRECTORY . $SEPARATOR . $request_directory;
@@ -22,10 +25,13 @@ $lang_file = json_decode(file_get_contents('./languages.json'));  // Language fi
 $lang = $_GET['lang'] ?? 'ja';
 
 // $directoryに対してパンくずリストを生成
-$breadcrumbs = [];
+$breadcrumbs = [['name' => 'Home', 'url' => '/']];
 $directories = explode('/', $request_directory);
 $url = '';
 foreach ($directories as $_directory) {
+    if (!$_directory) {
+        continue;
+    }
     $url .= '/' . $_directory;
     $breadcrumbs[] = [
         'name' => $_directory,
