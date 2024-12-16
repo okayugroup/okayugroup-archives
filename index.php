@@ -10,9 +10,11 @@ $RELATIVE_PATH = $config['RELATIVE_PATH'] ?? '';
 
 $request_directory = $_GET['dir'] ?? '';
 if (str_ends_with($request_directory, '/')) {
+    $request_directory = substr($request_directory, 0, -1);
+}
+if (str_starts_with($request_directory, '/')) {
     $request_directory = substr($request_directory, 1);
 }
-
 if ($request_directory) {
     $directory = $DIRECTORY . $SEPARATOR . $request_directory;
 } else {
