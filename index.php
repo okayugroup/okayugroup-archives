@@ -135,7 +135,11 @@ foreach ($files as $file) {
         continue;
     }
     echo '<tr>';
-    echo '<td><a href="'.'/'.$request_directory.'/'.$file['name'].'">'.$file['name'].'</a></td>';
+    if ($request_directory) {
+        echo '<td><a href="'.'/'.$request_directory.'/'.$file['name'].'">'.$file['name'].'</a></td>';
+    } else {
+        echo '<td><a href="'.$file['name'].'">'.$file['name'].'</a></td>';
+    }
     if ($file['size'] >= 1024 * 1024 * 1024) {
         echo '<td>'.round($file['size'] / 1024 / 1024 / 1024, 2).' GB</td>';
     } else if ($file['size'] >= 1024 * 1024) {
