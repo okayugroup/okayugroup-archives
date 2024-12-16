@@ -1,0 +1,105 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #f1f1f1;
+    padding: 40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    position: absolute;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    display: inline;
+    margin-left: 1em;
+}
+
+header ul li a {
+    text-decoration: none;
+}
+
+main {
+    margin: 128px 40px 0 40px;
+}
+
+main h1 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
+
+.breadcrumb ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.breadcrumb ul li {
+    display: inline;
+    margin-right: 1em;
+}
+
+.files {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.files table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.files table th {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: left;
+}
+
+.files table td {
+    padding: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.displaying-file {
+    padding: 20px;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.displaying-file .title {
+    margin: 0;
+    font-size: 16px;
+}

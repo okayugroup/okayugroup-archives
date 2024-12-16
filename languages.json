@@ -1,0 +1,24 @@
+{
+  "ja": {
+    "title": "おかゆグループアーカイブ",
+    "description": "おかゆグループのアーカイブです。",
+    "download_zip": "ZIPでダウンロード",
+    "file": "ファイル名",
+    "size": "サイズ",
+    "mtime": "更新日時",
+    "download": "ダウンロード",
+    "back": "戻る",
+    "file_too_large": "ファイルが大きすぎます。"
+  },
+  "en": {
+      "title": "Okayu Group Archive",
+      "description": "This is an archive of the Okayu Group.",
+      "download_zip": "Download ZIP",
+      "file": "File",
+      "size": "Size",
+      "mtime": "Modified",
+      "download": "Download",
+      "back": "Back",
+      "file_too_large": "The file is too large."
+  }
+}
