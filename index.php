@@ -205,7 +205,7 @@ foreach ($files as $file) {
                 case '*.gif':
                 case '*.bmp':
                 case '*.svg':
-                    echo '<img src="'.'/'.$request_directory.$SEPARATOR.$file['name'].'">';
+                    $code = '<img src="'.'/'.$request_directory.$SEPARATOR.$file['name'].'">';
                     break;
                 case '*.mp4':
                 case '*.webm':
