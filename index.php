@@ -192,7 +192,7 @@ foreach ($files as $file) {
             switch ($supported_file) {
                 case 'index.html':
                 case 'index.php':
-                    $code = '<iframe style="width:100%;height:300px;" src="'.$request_directory.$SEPARATOR.$file['name'].'"></iframe>';
+                    $code = '<iframe style="width:100%;height:300px;" src="'.'/'.$request_directory.$SEPARATOR.$file['name'].'"></iframe>';
                     break;
                 case 'README.md':
                 case 'CHANGELOG.md':
@@ -205,11 +205,11 @@ foreach ($files as $file) {
                 case '*.gif':
                 case '*.bmp':
                 case '*.svg':
-                    echo '<img src="'.$request_directory.$SEPARATOR.$file['name'].'">';
+                    echo '<img src="'.'/'.$request_directory.$SEPARATOR.$file['name'].'">';
                     break;
                 case '*.mp4':
                 case '*.webm':
-                    $code = '<video controls><source src="'.$request_directory.$SEPARATOR.$file['name'].'"></video>';
+                    $code = '<video controls><source src="'.'/'.$request_directory.$SEPARATOR.$file['name'].'"></video>';
                     break;
                 case '*.json':
                     $code = '<pre>'.file_get_contents($directory.$SEPARATOR.$file['name']).'</pre>';
