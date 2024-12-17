@@ -8,7 +8,10 @@ $DIRECTORY = $config['DIRECTORY'] ?? '.';
 $SEPARATOR = $config['SEPARATOR'] ?? DIRECTORY_SEPARATOR;
 $RELATIVE_PATH = $config['RELATIVE_PATH'] ?? '';
 
-$request_directory = $_GET['dir'] ?? '';
+$request_directory = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+if (str_ends_with($request_directory, 'index.php')) {
+    $request_directory = substr($request_directory, 0, -9);
+}
 if (str_ends_with($request_directory, '/')) {
     $request_directory = substr($request_directory, 0, -1);
 }
